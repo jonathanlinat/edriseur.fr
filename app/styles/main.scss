@@ -1,0 +1,23 @@
+// bower:scss
+@import "bower_components/bootstrap/scss/bootstrap.scss";
+// endbower
+
+@import url('https://fonts.googleapis.com/css?family=Gentium+Basic:700');
+
+.edriseur {
+  margin: 2rem 0;
+}
+
+.edriseur .definition h2 {
+  font-family: 'Gentium Basic', serif;
+}
+
+.edriseur .definition li {
+  margin-bottom: 1rem;
+}
+
+.edriseur .definition ol:last-child,
+.edriseur .definition li:last-child
+.edriseur .definition p:last-child {
+  margin: 0;
+}
