@@ -8,6 +8,17 @@
   margin: 2rem 0;
 }
 
+.edriseur ol:last-child,
+.edriseur li:last-child,
+.edriseur .extras p,
+.edriseur p:last-child {
+  margin: 0;
+}
+
+.edriseur .main {
+  margin-bottom: 2rem;
+}
+
 .edriseur .definition h2 {
   font-family: 'Gentium Basic', serif;
 }
@@ -16,8 +27,6 @@
   margin-bottom: 1rem;
 }
 
-.edriseur .definition ol:last-child,
-.edriseur .definition li:last-child
-.edriseur .definition p:last-child {
-  margin: 0;
+.edriseur .text-muted-2x {
+  color: #ccc;
 }
