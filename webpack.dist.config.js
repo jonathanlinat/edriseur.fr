@@ -47,7 +47,6 @@ module.exports = Object.assign(require('./webpack.config.js'), {
         removeRedundantAttributes: true,
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
-        removeTagWhitespace: true,
         sortAttributes: true,
         sortClassName: true,
         trimCustomFragments: true,
