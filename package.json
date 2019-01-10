@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/jonathanlinat/edriseur.fr/issues"
   },
-  "version": "2.0.1",
+  "version": "2.0.2",
   "scripts": {
     "dev": "webpack-dev-server --mode development --color",
     "build": "webpack --config webpack.dist.config.js --progress --color"
