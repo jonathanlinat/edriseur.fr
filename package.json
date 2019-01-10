@@ -1,46 +1,34 @@
 {
-  "private": true,
-  "engines": {
-    "node": ">=4"
+  "name": "edriseur.fr",
+  "description": "Édriseur.fr, pour une définition définitive et éclairée.",
+  "license": "MIT",
+  "author": "Jonathan Linat <https://github.com/jonathanlinat/>",
+  "homepage": "https://github.com/jonathanlinat/edriseur.fr#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathanlinat/edriseur.fr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonathanlinat/edriseur.fr/issues"
+  },
+  "version": "2.0.0",
+  "scripts": {
+    "dev": "webpack-dev-server --mode development --color",
+    "build": "webpack --config webpack.dist.config.js --progress --color"
   },
   "devDependencies": {
-    "babel-core": "^6.4.0",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-register": "^6.5.2",
-    "browser-sync": "^2.2.1",
-    "del": "^2.2.0",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.0.1",
-    "gulp-babel": "^6.1.1",
-    "gulp-cache": "^0.4.2",
-    "gulp-cssnano": "^2.0.0",
-    "gulp-eslint": "^3.0.0",
-    "gulp-filter": "^4.0.0",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^3.0.1",
-    "gulp-load-plugins": "^1.2.4",
-    "gulp-plumber": "^1.0.1",
-    "gulp-sass": "^2.0.0",
-    "gulp-size": "^2.1.0",
-    "gulp-sourcemaps": "^2.2.0",
-    "gulp-uglify": "^2.0.0",
-    "gulp-useref": "^3.0.0",
-    "main-bower-files": "^2.5.0",
-    "run-sequence": "^1.2.2",
-    "wiredep": "^4.0.0"
-  },
-  "eslintConfig": {
-    "env": {
-      "es6": true,
-      "node": true,
-      "browser": true
-    },
-    "rules": {
-      "quotes": [
-        2,
-        "single"
-      ]
-    }
+    "css-loader": "^2.1.0",
+    "cssnano": "^4.1.8",
+    "cssnano-preset-advanced": "^4.0.6",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
   }
 }
