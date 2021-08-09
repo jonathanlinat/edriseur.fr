@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/jonathanlinat/edriseur.fr.git"
   },
-  "version": "2.0.10",
+  "version": "2.1.0",
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --mode development --color",
@@ -26,6 +26,6 @@
     "style-loader": "1.2.1",
     "webpack": "4.44.2",
     "webpack-cli": "3.3.12",
-    "webpack-dev-server": "3.11.0"
+    "webpack-dev-server": "3.11.2"
   }
 }
