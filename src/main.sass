@@ -22,18 +22,29 @@
  * SOFTWARE.
  */
 
-@import url('https://fonts.googleapis.com/css?family=Gentium+Basic:700')
+@import url('https://fonts.googleapis.com/css?family=Gentium+Basic:700&display=swap')
 
 :root
+  --color-black: #000
+  --color-grey-clear: #ccc
+  --color-grey-neutral: #666
+  --color-blue-dark: #048
+  --color-blue-neutral: #07d
+  --color-yellow: #ff0
+  --color-white: #fff
+
   font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif
-  font-size: 16px
+  font-size: 14px
+  line-height: 1.6
+
+  @media (min-width: 48rem)
+    font-size: 16px
 
 .edriseur
   margin: 0
   padding: 2rem
-  line-height: 1.6
-  background-color: #fff
-  color: #222
+  background-color: var(--color-white)
+  color: var(--color-black)
 
   @media (min-width: 48rem)
     max-width: 80rem
@@ -48,15 +59,17 @@
     
   a
     text-decoration: none
-    color: #07d
+    color: var(--color-blue-neutral)
 
     &:focus,
     &:hover
       text-decoration: underline
-      color: #048
+      color: var(--color-blue-dark)
 
   header
     margin-bottom: 2rem
+    padding-bottom: 1rem
+    border-bottom: 1px solid var(--color-grey-clear)
 
     h1
       margin-top: 0
@@ -70,7 +83,7 @@
     text-align: justify 
 
     .definition
-      margin-bottom: 1rem
+      margin-bottom: 2rem
 
       ol
         padding-left: 2.5rem
@@ -82,15 +95,16 @@
         padding-left: 1.5rem
 
     .extras
-      padding-top: 1rem
-      border-top: 1px solid #ccc
+      padding: 1rem 0
+      border-top: 1px solid var(--color-grey-clear)
+      border-bottom: 1px solid var(--color-grey-clear)
       font-size: .8rem
 
       p:target
         display: inline-block
-        background-color: #ff0
+        background-color: var(--color-yellow)
 
   footer
     font-size: .8rem
     text-align: right
-    color: #666
+    color: var(--color-grey-neutral)
