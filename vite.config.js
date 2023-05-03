@@ -1,14 +1,20 @@
-import * as path from 'path';
 import { defineConfig } from 'vite';
+import VitePluginInjectPreload from 'vite-plugin-inject-preload';
+import { ViteMinifyPlugin } from 'vite-plugin-minify';
 
 export default defineConfig({
   root: 'src',
   build: {
     outDir: '../dist',
   },
-  resolve: {
-    alias: {
-      Modules: path.resolve(__dirname, './src/modules'),
-    },
-  },
+  plugins: [
+    VitePluginInjectPreload({
+      files: [
+        {
+          match: /assets\/index-[a-z-0-9]*\.css$/,
+        }
+      ]
+    }),
+    ViteMinifyPlugin({}),
+  ]
 });
