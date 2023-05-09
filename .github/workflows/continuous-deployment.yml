@@ -1,0 +1,55 @@
+name: Continuous Deployment
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build_deploy_and_release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18
+    - name: Install pnpm
+      run: npm install -g pnpm
+    - name: Install dependencies
+      run: pnpm install
+    - name: Bump version using Conventional Commits
+      id: bump_version
+      run: |
+        pnpm dlx standard-version --skip.commit --skip.tag
+        VERSION=$(cat package.json | jq -r '.version')
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add package.json
+        git commit -m "chore(release): ${VERSION}"
+        git push
+        echo "::set-output name=version::${VERSION}"
+    - name: Build project
+      run: pnpm build
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+        keep_files: true
+        force_orphan: true
+        branch: gh-pages
+    - name: Create a new tag
+      id: create_tag
+      run: |
+        VERSION=${{ steps.bump_version.outputs.version }}
+        git tag "${VERSION}"
+        git push --tags
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.create_tag.outputs.tag }}
+        release_name: Release ${{ steps.create_tag.outputs.tag }}
+        draft: false
+        prerelease: false
