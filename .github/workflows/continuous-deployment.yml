@@ -5,6 +5,7 @@ on:
       - master
 jobs:
   build_deploy_and_release:
+    name: Build, deploy and release
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -51,6 +52,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.create_tag.outputs.tag }}
-        release_name: Release ${{ steps.create_tag.outputs.tag }}
+        release_name: ${{ steps.create_tag.outputs.tag }}
         draft: false
         prerelease: false
