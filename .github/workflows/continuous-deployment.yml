@@ -28,7 +28,7 @@ jobs:
         git add package.json
         git commit -m "chore(release): ${VERSION}"
         git push
-        echo "::set-output name=version::${VERSION}"
+        echo "version=${VERSION}" >> $GITHUB_OUTPUT
     - name: Build project
       run: pnpm build
     - name: Deploy to GitHub Pages
@@ -45,7 +45,7 @@ jobs:
         VERSION=${{ steps.bump_version.outputs.version }}
         git tag "${VERSION}"
         git push --tags
-        echo "::set-output name=tag::${VERSION}"
+        echo "tag=${VERSION}" >> $GITHUB_OUTPUT
     - name: Create GitHub Release
       uses: actions/create-release@v1
       env:
