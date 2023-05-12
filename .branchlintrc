@@ -1,0 +1,19 @@
+{
+  "allowed": [
+    "master"
+  ],
+  "prefixes": [
+    "bug",
+    "chore",
+    "feature",
+    "hotfix"
+  ],
+  "separator": "/",
+  "maxSections": 2,
+  "regularExpressions": [
+    "(([a-z]|[0-9]){2,})+$"
+  ],
+  "msgSeperatorRequired": "Branch name [%s] must contain a separator %s.",
+  "msgRegexNotMatched": "Branch name [%s] is not allowed. Example: [bug|chore|feature|hotfix]/concise_meaningful_description",
+  "msgPrefixNotAllowed": "Branch name [%s] is not allowed. Allowed prefix are %s."
+}
