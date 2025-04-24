@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 20
     - name: Install pnpm
       run: npm install -g pnpm
     - name: Install dependencies
@@ -47,11 +47,7 @@ jobs:
         git push --tags
         echo "tag=${VERSION}" >> $GITHUB_OUTPUT
     - name: Create GitHub Release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: ncipollo/release-action@v1
       with:
-        tag_name: ${{ steps.create_tag.outputs.tag }}
-        release_name: ${{ steps.create_tag.outputs.tag }}
-        draft: false
-        prerelease: false
+        tag: ${{ steps.create_tag.outputs.tag }}
+        name: ${{ steps.create_tag.outputs.tag }}

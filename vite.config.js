@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import VitePluginInjectPreload from 'vite-plugin-inject-preload';
+import UnpluginInjectPreload from 'unplugin-inject-preload/vite'
 import { ViteMinifyPlugin } from 'vite-plugin-minify';
 
 import { version as appVersion } from './package.json';
@@ -15,10 +15,10 @@ export default defineConfig({
     'import.meta.env.APP_VERSION': appVersion,
   },
   plugins: [
-    VitePluginInjectPreload({
+    UnpluginInjectPreload({
       files: [
         {
-          match: /assets\/index-[a-z-0-9]*\.css$/,
+          entryMatch: /assets\/index-[a-z-0-9]*\.css$/,
         }
       ],
     }),
