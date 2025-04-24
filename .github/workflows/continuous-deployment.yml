@@ -48,4 +48,4 @@ jobs:
         keep_files: true
         force_orphan: true
         branch: gh-pages
-        commit_message: "Regenerated page based on version ${{ steps.bump_version.outputs.version }}."
+        full_commit_message: "Regenerated page based on version ${{ steps.bump_version.outputs.version }}."
