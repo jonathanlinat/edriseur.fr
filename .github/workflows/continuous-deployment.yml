@@ -31,23 +31,21 @@ jobs:
         echo "version=${VERSION}" >> $GITHUB_OUTPUT
     - name: Build project
       run: pnpm build
+    - name: Create a new tag
+      run: |
+        git tag "${{ steps.bump_version.outputs.version }}"
+        git push --tags
+    - name: Create GitHub Release
+      uses: ncipollo/release-action@v1
+      with:
+        tag: ${{ steps.bump_version.outputs.version }}
+        name: ${{ steps.bump_version.outputs.version }}
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
         keep_files: true
         force_orphan: true
         branch: gh-pages
-    - name: Create a new tag
-      id: create_tag
-      run: |
-        VERSION=${{ steps.bump_version.outputs.version }}
-        git tag "${VERSION}"
-        git push --tags
-        echo "tag=${VERSION}" >> $GITHUB_OUTPUT
-    - name: Create GitHub Release
-      uses: ncipollo/release-action@v1
-      with:
-        tag: ${{ steps.create_tag.outputs.tag }}
-        name: ${{ steps.create_tag.outputs.tag }}
+        commit_message: "Regenerated page based on version ${{ steps.bump_version.outputs.version }}."
